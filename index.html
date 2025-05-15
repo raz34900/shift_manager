@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>חישוב אילוצי משמרות לעובדים</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#E0F7FA">
+    <link rel="apple-touch-icon" href="icon.png">
+</head>
+<body class="bg-light-blue flex items-center justify-center min-h-screen">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+        <h1 class="text-2xl font-bold mb-4 text-center">חישוב אילוצי משמרות</h1>
+        <form id="shiftForm" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">משימות בוקר (40–46)</label>
+                <select id="morningTasks" class="mt-1 block w-full p-2 border rounded-md">
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option>
+                    <option value="43">43</option>
+                    <option value="44">44</option>
+                    <option value="45">45</option>
+                    <option value="46">46</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">משימות צהריים (20–23)</label>
+                <select id="afternoonTasks" class="mt-1 block w-full p-2 border rounded-md">
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">משימות לילה (20–23)</label>
+                <select id="nightTasks" class="mt-1 block w-full p-2 border rounded-md">
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">עובדים בבוקר (4–8)</label>
+                <select id="morningWorkers" class="mt-1 block w-full p-2 border rounded-md">
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700">עובדים בצהריים/לילה (4–9)</label>
+                <select id="afternoonNightWorkers" class="mt-1 block w-full p-2 border rounded-md">
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                </select>
+            </div>
+            <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">חשב</button>
+        </form>
+        <div id="result" class="mt-4 text-center"></div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(() => console.log('Service Worker Registered'))
+                .catch(error => console.error('Service Worker Error:', error));
+        }
+    </script>
+</body>
+</html>
